@@ -1,3 +1,7 @@
 {
-  "cleanUrls": true
+  "cleanUrls": true,
+  "rewrites": [
+    { "source": "/home", "destination": "/Waypoint Homepage final.html" },
+    { "source": "/product", "destination": "/Waypoint Product Page.html" }
+  ]
 }
