@@ -7,6 +7,7 @@
     { "source": "/terms", "destination": "/Waypoint%20Terms%20and%20Conditions" },
     { "source": "/contact", "destination": "/Waypoint%20Contact" },
     { "source": "/policy", "destination": "/Waypoint%20Privacy%20Policy" },
-    { "source": "/showroom_visit", "destination": "/Waypoint%20Book%20a%20Showroom%20Visit" }
+    { "source": "/showroom_visit", "destination": "/Waypoint%20Book%20a%20Showroom%20Visit" },
+    { "source": "/404", "destination": "/Waypoint%20404" },
   ]
 }
