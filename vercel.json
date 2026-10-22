@@ -5,6 +5,6 @@
     { "source": "/product", "destination": "/Waypoint%20Product%20Page" },
     { "source": "/blog", "destination": "/Waypoint%20Blog" },
     { "source": "/terms", "destination": "/Waypoint%20Terms%20and%20Conditions" },
-    { "source": "/contact", "destination": "/Waypoint%20Contact" },
+    { "source": "/contact", "destination": "/Waypoint%20Contact" }
   ]
 }
