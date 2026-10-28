@@ -12,6 +12,13 @@
     { "source": "/cart", "destination": "/Waypoint%20Cart" },
     { "source": "/source_it", "destination": "/Waypoint%20Source%20It%20For%20Me" },
     { "source": "/events", "destination": "/Waypoint%20Events" },
-    { "source": "/article", "destination": "/Waypoint%20Blog%20Article" }
+    { "source": "/article", "destination": "/Waypoint%20Blog%20Article" },
+    { "source": "/custom_uniforms", "destination": "/Waypoint%20Custom%20Uniforms%20v5" },
+    { "source": "/about", "destination": "/Waypoint%20About%20v2" },
+    { "source": "/request_quote", "destination": "/Waypoint%20Request%20a%20Quotation" },
+    { "source": "/crew_uniform", "destination": "/Waypoint%20Crew%20Uniforms%20v2" },
+    { "source": "/search", "destination": "/Waypoint%20Search" },
+    { "source": "/size_guide", "destination": "/Waypoint%20Size%20Guide" },
+    { "source": "/look_book", "destination": "/Waypoint%20Lookbook" },
   ]
 }
