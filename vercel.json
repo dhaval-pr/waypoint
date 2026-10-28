@@ -19,6 +19,6 @@
     { "source": "/crew_uniform", "destination": "/Waypoint%20Crew%20Uniforms%20v2" },
     { "source": "/search", "destination": "/Waypoint%20Search" },
     { "source": "/size_guide", "destination": "/Waypoint%20Size%20Guide" },
-    { "source": "/look_book", "destination": "/Waypoint%20Lookbook" },
+    { "source": "/look_book", "destination": "/Waypoint%20Lookbook" }
   ]
 }
