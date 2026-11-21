@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La Marquise Jewellery — Since 1986</title>
+<meta name="description" content="La Marquise — natural-diamond fine jewellery, crafted in Dubai since 1986. Timeless diamonds, endless radiance.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ivory:#f7f4ef;
+  --paper:#fffdfa;
+  --ink:#1b1917;
+  --soft:#4a4541;
+  --mist:#8a827a;
+  --night:#141110;
+  --champagne:#9a7b4f;
+  --champagne-lt:#b89968;
+  --line:rgba(27,25,23,.13);
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --sans:'Jost',system-ui,-apple-system,sans-serif;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--ivory);color:var(--ink);font-weight:300;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,video{display:block;width:100%;height:100%;object-fit:cover}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1440px;margin:0 auto;padding:0 clamp(18px,4vw,64px)}
+.eyebrow{font-size:11px;letter-spacing:.34em;text-transform:uppercase;color:var(--champagne);font-weight:400}
+h1,h2,h3,h4{font-family:var(--serif);font-weight:400;line-height:1.06;letter-spacing:.004em}
+.serif{font-family:var(--serif)}
+
+.btn{display:inline-flex;align-items:center;gap:.7em;font-size:11.5px;letter-spacing:.24em;text-transform:uppercase;font-weight:400;padding:15px 34px;border:1px solid var(--ink);color:var(--ink);background:transparent;cursor:pointer;transition:all .5s var(--ease);position:relative;overflow:hidden}
+.btn span{position:relative;z-index:1;transition:color .5s var(--ease)}
+.btn::after{content:"";position:absolute;inset:0;background:var(--ink);transform:translateY(101%);transition:transform .55s var(--ease)}
+.btn:hover::after{transform:translateY(0)}
+.btn:hover span{color:var(--paper)}
+.btn.light{border-color:rgba(255,253,250,.6);color:var(--paper)}
+.btn.light::after{background:var(--paper)}
+.btn.light:hover span{color:var(--night)}
+.btn.solid{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.btn.solid::after{background:var(--champagne)}
+.btn.solid:hover span{color:var(--night)}
+.ul-link{display:inline-flex;align-items:center;gap:.55em;font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;position:relative;padding-bottom:3px}
+.ul-link::after{content:"";position:absolute;left:0;bottom:0;height:1px;width:100%;background:currentColor;opacity:.5;transform:scaleX(.001);transform-origin:left;transition:transform .5s var(--ease)}
+.ul-link:hover::after{transform:scaleX(1)}
+.ul-link .ar{transition:transform .4s var(--ease)}
+.ul-link:hover .ar{transform:translateX(5px)}
+
+/* ---------- Top bar (Tiffany-style: transparent over hero, white on scroll / menu open) ---------- */
+#topbar{position:fixed;top:0;left:0;right:0;z-index:120;transition:background .4s var(--ease),box-shadow .4s var(--ease),color .4s var(--ease)}
+.announce{text-align:center;font-size:11px;letter-spacing:.2em;text-transform:uppercase;padding:9px 20px;font-weight:300;transition:background .4s,color .4s,border-color .4s}
+.announce b{font-weight:400;color:var(--champagne-lt)}
+header.site{transition:background .4s var(--ease)}
+.brand-row{position:relative;display:flex;align-items:center;justify-content:center;padding:17px 0 12px}
+.logo{height:clamp(32px,3.2vw,44px);transition:filter .4s var(--ease)}
+.logo img{height:100%;width:auto;object-fit:contain}
+.brand-row .side{position:absolute;top:50%;transform:translateY(-50%);display:flex;align-items:center;gap:22px}
+.brand-row .side.left{left:0}
+.brand-row .side.right{right:0}
+.side a{font-size:11px;letter-spacing:.16em;text-transform:uppercase;display:inline-flex;align-items:center;gap:7px;transition:opacity .3s}
+.side a:hover{opacity:.6}
+.ic{width:19px;height:19px;stroke:currentColor;fill:none;stroke-width:1.1}
+.nav-row{display:flex;justify-content:center;gap:clamp(16px,2.1vw,40px);padding-bottom:14px;transition:color .4s}
+.nav-item{position:static}
+.nav-row>.nav-item>a{font-size:12px;letter-spacing:.15em;text-transform:uppercase;font-weight:400;padding:8px 0;position:relative;display:inline-block}
+.nav-row>.nav-item>a::after{content:"";position:absolute;left:0;bottom:2px;height:1.5px;width:100%;background:currentColor;transform:scaleX(.001);transform-origin:center;transition:transform .4s var(--ease)}
+.nav-row>.nav-item:hover>a::after{transform:scaleX(1)}
+/* DEFAULT (transparent over hero) */
+#topbar .announce{background:rgba(10,8,7,.26);color:rgba(255,253,250,.95);border-bottom:1px solid rgba(255,253,250,.14)}
+#topbar header.site{background:transparent}
+#topbar .logo{filter:brightness(0) invert(1)}
+#topbar header.site,#topbar .side a,#topbar .nav-row{color:var(--paper)}
+/* SOLID (scrolled or a menu open) = clean white, like Tiffany */
+#topbar.solid .announce,#topbar.menu-open .announce{background:var(--night);color:var(--paper);border-bottom-color:transparent}
+#topbar.solid header.site,#topbar.menu-open header.site{background:var(--paper);box-shadow:0 1px 0 var(--line)}
+#topbar.solid .logo,#topbar.menu-open .logo{filter:none}
+#topbar.solid header.site,#topbar.solid .side a,#topbar.solid .nav-row,
+#topbar.menu-open header.site,#topbar.menu-open .side a,#topbar.menu-open .nav-row{color:var(--ink)}
+
+/* ---------- Mega menu (Tiffany-exact) ---------- */
+.mega{position:absolute;left:0;right:0;top:100%;background:var(--paper);color:var(--ink);box-shadow:0 26px 44px -34px rgba(20,17,16,.38);border-top:1px solid var(--line);opacity:0;visibility:hidden;transform:translateY(-6px);transition:opacity .32s var(--ease),transform .32s var(--ease),visibility .32s;z-index:90}
+.nav-item:hover .mega{opacity:1;visibility:visible;transform:translateY(0)}
+.mega-inner{max-width:1500px;margin:0 auto;padding:46px clamp(18px,4vw,70px) 52px}
+/* Standard layout: text columns + featured image panel */
+.mega-std{display:grid;grid-template-columns:1fr 1fr 1fr 1.25fr;gap:clamp(22px,3vw,60px)}
+.mcol h5{font-family:var(--serif);font-size:21px;color:var(--mist);font-weight:400;margin-bottom:20px}
+.mcol ul{list-style:none}
+.mcol li{margin-bottom:13px}
+.mcol li a{font-size:14px;letter-spacing:.01em;color:var(--ink);transition:color .25s}
+.mcol li a:hover{color:var(--champagne)}
+.mfeat{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-content:start}
+.mfeat.single{grid-template-columns:1fr}
+.mfig{display:block}
+.mfig .im{aspect-ratio:1;overflow:hidden;background:var(--ivory)}
+.mfig.wide .im{aspect-ratio:4/3}
+.mfig img{transition:transform 1s var(--ease)}
+.mfig:hover img{transform:scale(1.05)}
+.mfig .cap{padding:11px 2px 0;font-size:13px;color:var(--ink);transition:color .25s}
+.mfig:hover .cap{color:var(--champagne)}
+/* Celebration / Bridal layout: sub-tabs + tile row + bottom CTA */
+.mtabs{display:flex;justify-content:center;gap:clamp(18px,3vw,50px);margin-bottom:34px;flex-wrap:wrap}
+.mtab{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--mist);cursor:pointer;padding:0 0 8px;position:relative;background:none;border:none;font-family:var(--sans);transition:color .3s}
+.mtab:hover{color:var(--ink)}
+.mtab.active{color:var(--ink)}
+.mtab.active::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1.5px;background:var(--ink)}
+.mtab.diff{font-family:var(--serif);font-size:18px;text-transform:none;letter-spacing:0;color:var(--ink)}
+.mpanel{display:none;grid-template-columns:repeat(6,1fr);gap:clamp(12px,1.4vw,22px)}
+.mpanel.active{display:grid}
+.mtile .im{aspect-ratio:1;overflow:hidden;background:var(--ivory)}
+.mtile img{transition:transform 1s var(--ease)}
+.mtile:hover img{transform:scale(1.05)}
+.mtile .cap{text-align:center;padding:12px 4px 0;font-size:13.5px;color:var(--ink);transition:color .25s}
+.mtile:hover .cap{color:var(--champagne)}
+.mcta{text-align:center;margin-top:40px;padding-top:28px;border-top:1px solid var(--line);font-family:var(--serif);font-size:19px;color:var(--ink)}
+.mcta a{text-decoration:underline;text-underline-offset:4px;transition:color .25s}
+.mcta a:hover{color:var(--champagne)}
+
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+.burger span{width:24px;height:1.4px;background:currentColor;transition:.3s}
+
+/* ---------- Hero (video) ---------- */
+.hero{position:relative;height:100vh;min-height:620px;overflow:hidden;background:var(--night)}
+.hero video,.hero .poster{position:absolute;inset:0}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(10,8,7,.42) 0%,rgba(10,8,7,0) 26%,rgba(10,8,7,0) 52%,rgba(10,8,7,.62) 100%)}
+.hero-content{position:absolute;left:0;right:0;bottom:clamp(60px,11vh,120px);text-align:center;color:var(--paper);z-index:2;padding:0 20px}
+.hero-content .eyebrow{display:block;margin-bottom:22px;color:var(--champagne-lt)}
+.hero-content h1{font-size:clamp(44px,7vw,110px);line-height:.98;margin-bottom:18px;text-shadow:0 2px 30px rgba(0,0,0,.3)}
+.hero-content h1 em{font-style:italic}
+.hero-content p{font-size:15px;letter-spacing:.02em;opacity:.9;max-width:460px;margin:0 auto 34px}
+.hero-cta{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.hero-scroll{position:absolute;left:50%;bottom:26px;transform:translateX(-50%);z-index:2;color:rgba(255,253,250,.7);font-size:9.5px;letter-spacing:.3em;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:9px}
+.hero-scroll i{width:1px;height:34px;background:linear-gradient(rgba(255,253,250,.8),transparent);animation:drip 2.4s infinite}
+@keyframes drip{0%{transform:scaleY(0);transform-origin:top}45%{transform:scaleY(1);transform-origin:top}55%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* ---------- USP strip ---------- */
+.usp{background:var(--paper);border-bottom:1px solid var(--line)}
+.usp-grid{display:grid;grid-template-columns:repeat(6,1fr)}
+.usp-item{text-align:center;padding:26px 14px;border-left:1px solid var(--line);display:flex;flex-direction:column;align-items:center;gap:11px;transition:background .4s}
+.usp-item:first-child{border-left:none}
+.usp-item:hover{background:var(--ivory)}
+.usp-item img{width:34px;height:34px;object-fit:contain;opacity:.85}
+.usp-item .t{font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--soft);line-height:1.5;max-width:140px}
+
+/* ---------- Section scaffolding ---------- */
+.sec{padding:clamp(64px,10vh,128px) 0}
+.sec-head{text-align:center;max-width:640px;margin:0 auto clamp(40px,6vh,66px)}
+.sec-head .eyebrow{display:block;margin-bottom:18px}
+.sec-head h2{font-size:clamp(32px,4.6vw,60px)}
+.sec-head p{margin-top:18px;color:var(--mist);font-size:15px;max-width:520px;margin-left:auto;margin-right:auto}
+
+/* ---------- Shop by Category ---------- */
+.cats{background:var(--ivory)}
+.cat-scroll{display:grid;grid-template-columns:repeat(7,1fr);gap:clamp(10px,1.3vw,20px)}
+.cat{position:relative;overflow:hidden}
+.cat .im{aspect-ratio:3/4;overflow:hidden;background:var(--paper)}
+.cat img{transition:transform 1.3s var(--ease)}
+.cat:hover img{transform:scale(1.07)}
+.cat .lab{text-align:center;padding:16px 4px 2px;font-size:12px;letter-spacing:.17em;text-transform:uppercase;color:var(--ink);transition:color .3s}
+.cat:hover .lab{color:var(--champagne)}
+
+/* ---------- Collections (editorial alternating) ---------- */
+.coll-wrap{background:var(--paper)}
+.coll{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:clamp(28px,5vw,88px);margin-bottom:clamp(44px,7vh,104px)}
+.coll:last-child{margin-bottom:0}
+.coll:nth-child(even) .coll-media{order:2}
+.coll-media{position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--ivory)}
+.coll-media img{transition:transform 1.5s var(--ease)}
+.coll:hover .coll-media img{transform:scale(1.05)}
+.coll-media .idx{position:absolute;top:20px;left:22px;font-family:var(--serif);font-size:14px;letter-spacing:.2em;color:var(--paper);mix-blend-mode:difference}
+.coll-copy{padding:0 clamp(0px,2vw,28px)}
+.coll-copy .eyebrow{display:block;margin-bottom:14px}
+.coll-copy h3{font-size:clamp(30px,4vw,54px);margin-bottom:10px}
+.coll-copy .tag{font-family:var(--serif);font-style:italic;font-size:22px;color:var(--champagne);margin-bottom:18px}
+.coll-copy p{color:var(--mist);margin-bottom:28px;max-width:430px;font-size:15px}
+
+/* ---------- Brand film ---------- */
+.film{position:relative;height:clamp(520px,88vh,860px);overflow:hidden;background:var(--night)}
+.film video,.film .poster{position:absolute;inset:0}
+.film::after{content:"";position:absolute;inset:0;background:linear-gradient(to right,rgba(10,8,7,.5),rgba(10,8,7,.1) 55%,transparent)}
+.film-copy{position:absolute;left:0;top:50%;transform:translateY(-50%);z-index:2;color:var(--paper);max-width:560px;padding:0 clamp(24px,6vw,96px)}
+.film-copy .eyebrow{display:block;margin-bottom:20px;color:var(--champagne-lt)}
+.film-copy h2{font-size:clamp(34px,5vw,68px);margin-bottom:22px}
+.film-copy p{opacity:.88;max-width:400px;margin-bottom:32px;font-size:15.5px}
+
+/* ---------- As Seen On Social ---------- */
+.social{background:var(--ivory);overflow:hidden}
+.social-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:38px;gap:20px;flex-wrap:wrap}
+.social-head h2{font-size:clamp(30px,4.2vw,54px)}
+.social-head .eyebrow{display:block;margin-bottom:12px}
+.social-nav{display:flex;gap:10px}
+.social-nav button{width:46px;height:46px;border:1px solid var(--line);background:var(--paper);cursor:pointer;color:var(--ink);font-size:16px;transition:all .35s var(--ease);display:flex;align-items:center;justify-content:center}
+.social-nav button:hover{background:var(--ink);color:var(--paper)}
+.social-track{display:flex;gap:clamp(12px,1.4vw,20px);overflow-x:auto;scroll-behavior:smooth;scroll-snap-type:x mandatory;padding-bottom:6px;-ms-overflow-style:none;scrollbar-width:none}
+.social-track::-webkit-scrollbar{display:none}
+.svid{flex:0 0 clamp(230px,24vw,300px);scroll-snap-align:start;cursor:pointer}
+.svid .frame{position:relative;aspect-ratio:9/16;overflow:hidden;background:var(--night)}
+.svid video{position:absolute;inset:0;opacity:0;transition:opacity .5s}
+.svid .pf{position:absolute;inset:0;transition:transform 1.2s var(--ease)}
+.svid.playing video{opacity:1}
+.svid:hover .pf{transform:scale(1.05)}
+.svid .play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:54px;height:54px;border-radius:50%;background:rgba(255,253,250,.9);display:flex;align-items:center;justify-content:center;transition:opacity .4s,transform .4s;z-index:2}
+.svid .play svg{width:16px;height:16px;fill:var(--night);margin-left:2px}
+.svid.playing .play{opacity:0}
+.svid .lab{padding:16px 2px 0;display:flex;align-items:center;gap:7px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);transition:color .3s}
+.svid:hover .lab{color:var(--champagne)}
+
+/* ---------- Occasion ---------- */
+.occ{background:var(--paper)}
+.occ-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(12px,1.6vw,22px)}
+.occ-card{position:relative;aspect-ratio:3/4;overflow:hidden;background:var(--ivory)}
+.occ-card img{transition:transform 1.4s var(--ease)}
+.occ-card::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(10,8,7,.62),transparent 58%);transition:opacity .4s}
+.occ-card:hover img{transform:scale(1.07)}
+.occ-card .t{position:absolute;left:0;right:0;bottom:22px;text-align:center;color:var(--paper);z-index:2}
+.occ-card .t .n{font-family:var(--serif);font-size:24px}
+.occ-card .t .c{font-size:10px;letter-spacing:.2em;text-transform:uppercase;opacity:0;transform:translateY(8px);transition:all .45s var(--ease);margin-top:5px}
+.occ-card:hover .t .c{opacity:.9;transform:translateY(0)}
+
+/* ---------- Curated products ---------- */
+.curated{background:var(--ivory)}
+.prod-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(16px,2vw,30px)}
+.card{cursor:pointer}
+.card-media{position:relative;aspect-ratio:1;overflow:hidden;background:var(--ivory);margin-bottom:16px}
+.card-media img{transition:transform 1.2s var(--ease)}
+.card:hover .card-media img{transform:scale(1.04)}
+.card-media .wish{position:absolute;top:16px;right:16px;background:none;border:none;cursor:pointer;padding:0;line-height:0}
+.card-media .wish svg{width:22px;height:22px;stroke:var(--ink);fill:none;stroke-width:1.2;transition:stroke .3s,fill .3s}
+.card-media .wish:hover svg{stroke:var(--champagne);fill:var(--champagne)}
+.card-media .bag{position:absolute;right:16px;bottom:16px;background:none;border:none;cursor:pointer;padding:0;line-height:0}
+.card-media .bag svg{width:21px;height:21px;stroke:var(--ink);fill:none;stroke-width:1.2;transition:stroke .3s}
+.card-media .bag:hover svg{stroke:var(--champagne)}
+.card-media .swatches{position:absolute;left:16px;bottom:18px;display:flex;align-items:center}
+.card-media .sw{width:17px;height:17px;border-radius:50%;border:1.5px solid var(--paper);box-shadow:0 0 0 1px rgba(27,25,23,.14);margin-right:-5px}
+.card-media .sw.y{background:linear-gradient(135deg,#f3dc9f 20%,#d3ad5b)}
+.card-media .sw.w{background:linear-gradient(135deg,#edebe7 20%,#cbc8c2)}
+.card-media .sw.r{background:linear-gradient(135deg,#f1cbb6 20%,#d79d82)}
+.card .cn{font-size:15px;letter-spacing:.01em;color:var(--ink);line-height:1.45;margin-bottom:7px;font-weight:300}
+.card .cp{font-size:14px;color:var(--soft);letter-spacing:.02em}
+.curated .more{text-align:center;margin-top:clamp(42px,6vh,70px)}
+
+/* ---------- Bespoke ---------- */
+.bespoke{background:var(--night);color:var(--paper)}
+.bespoke-grid{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:clamp(30px,5vw,80px)}
+.bespoke-media{aspect-ratio:5/4;overflow:hidden;position:relative;background:#241f1b}
+.bespoke-media::after{content:"";position:absolute;inset:14px;border:1px solid rgba(184,153,104,.4)}
+.bespoke-media img{transition:transform 1.6s var(--ease)}
+.bespoke:hover .bespoke-media img{transform:scale(1.05)}
+.bespoke-copy .eyebrow{display:block;margin-bottom:20px;color:var(--champagne-lt)}
+.bespoke-copy h2{font-size:clamp(32px,4.4vw,56px);margin-bottom:22px}
+.bespoke-copy h2 em{font-style:italic}
+.bespoke-copy p{color:rgba(255,253,250,.66);max-width:420px;margin-bottom:30px;font-size:15.5px}
+.bespoke-list{list-style:none;margin-bottom:36px}
+.bespoke-list li{display:flex;align-items:center;gap:13px;padding:11px 0;border-bottom:1px solid rgba(255,253,250,.12);font-size:14px;color:rgba(255,253,250,.85)}
+.bespoke-list li::before{content:"";width:6px;height:6px;background:var(--champagne-lt);transform:rotate(45deg);flex:none}
+
+/* ---------- Boutique ---------- */
+.boutique{background:var(--ivory)}
+.boutique-grid{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line)}
+.boutique-media{position:relative;overflow:hidden;min-height:440px;background:var(--paper)}
+.boutique-media img{transition:transform 1.8s var(--ease)}
+.boutique:hover .boutique-media img{transform:scale(1.05)}
+.boutique-copy{padding:clamp(38px,5vw,78px);display:flex;flex-direction:column;justify-content:center;background:var(--paper)}
+.boutique-copy .eyebrow{display:block;margin-bottom:18px}
+.boutique-copy h2{font-size:clamp(28px,3.8vw,48px);margin-bottom:20px}
+.boutique-copy p{color:var(--mist);max-width:400px;margin-bottom:14px;font-size:15px}
+.boutique-detail{display:flex;gap:40px;margin:24px 0 34px;flex-wrap:wrap}
+.boutique-detail .k{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--champagne);margin-bottom:5px}
+.boutique-detail .v{font-family:var(--serif);font-size:19px}
+
+/* ---------- Newsletter ---------- */
+.news{background:var(--night);color:var(--paper);text-align:center;padding:clamp(60px,9vh,108px) 0}
+.news h2{font-size:clamp(30px,4vw,52px);margin-bottom:16px}
+.news p{color:rgba(255,253,250,.6);max-width:450px;margin:0 auto 34px;font-size:15px}
+.news-form{display:flex;max-width:480px;margin:0 auto;border-bottom:1px solid rgba(255,253,250,.4)}
+.news-form input{flex:1;background:none;border:none;color:var(--paper);padding:15px 4px;font-family:var(--sans);font-size:14px;outline:none}
+.news-form input::placeholder{color:rgba(255,253,250,.45)}
+.news-form button{background:none;border:none;color:var(--champagne-lt);font-family:var(--sans);font-size:11px;letter-spacing:.22em;text-transform:uppercase;cursor:pointer;padding:0 10px;transition:color .3s}
+.news-form button:hover{color:var(--paper)}
+
+/* ---------- Footer ---------- */
+footer{background:var(--ivory);color:var(--soft);padding:clamp(34px,4.5vh,52px) 0 0;border-top:1px solid var(--line)}
+.foot-top{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(24px,3vw,52px);align-items:start;padding-bottom:clamp(24px,3vh,34px);border-bottom:1px solid var(--line)}
+.foot-col h5{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--champagne);margin-bottom:15px;font-weight:400}
+.foot-col ul{list-style:none}
+.foot-col li{margin-bottom:9px}
+.foot-col a{font-size:13px;color:var(--soft);transition:color .3s,padding-left .3s}
+.foot-col a:hover{color:var(--champagne);padding-left:4px}
+/* Footer newsletter (inside Visit Us column) */
+.foot-news{margin-top:26px}
+.foot-news h5{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--champagne);margin-bottom:9px;font-weight:400}
+.foot-news p{font-size:12.5px;color:var(--mist);line-height:1.5;margin-bottom:12px;max-width:240px}
+.foot-news-form{display:flex;align-items:center;border-bottom:1px solid rgba(27,25,23,.3);max-width:260px}
+.foot-news-form input{flex:1;background:none;border:none;padding:9px 2px;font-family:var(--sans);font-size:13px;color:var(--ink);outline:none;min-width:0}
+.foot-news-form input::placeholder{color:var(--mist)}
+.foot-news-form button{background:none;border:none;color:var(--champagne);font-size:17px;line-height:1;cursor:pointer;padding:0 4px;transition:color .3s,transform .3s}
+.foot-news-form button:hover{color:var(--ink);transform:translateX(3px)}
+/* Bottom bar — copyright left, logo centre (Tiffany-style), social right */
+.foot-bottom{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:20px;padding:20px 0 24px}
+.foot-bottom .cr{font-size:11.5px;color:var(--mist);justify-self:start}
+.foot-logo{justify-self:center;line-height:0}
+.foot-logo img{height:clamp(38px,3.8vw,50px);width:auto;opacity:.9}
+.foot-social{display:flex;gap:18px;justify-self:end}
+.foot-social a{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);transition:color .3s}
+.foot-social a:hover{color:var(--champagne)}
+.foot-social a:hover{color:var(--champagne-lt)}
+
+/* ---------- Concierge button ---------- */
+.concierge{position:fixed;right:20px;bottom:20px;z-index:110;display:flex;align-items:center;gap:10px;background:var(--night);color:var(--paper);padding:13px 20px;border-radius:40px;box-shadow:0 14px 40px -14px rgba(0,0,0,.6);font-size:12px;letter-spacing:.1em;cursor:pointer;transition:transform .4s var(--ease)}
+.concierge:hover{transform:translateY(-3px)}
+.concierge .dot{width:8px;height:8px;border-radius:50%;background:var(--champagne-lt);box-shadow:0 0 0 0 rgba(184,153,104,.6);animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(184,153,104,.5)}70%{box-shadow:0 0 0 9px rgba(184,153,104,0)}100%{box-shadow:0 0 0 0 rgba(184,153,104,0)}}
+
+/* ---------- Reveal ---------- */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+.reveal.d1{transition-delay:.1s}.reveal.d2{transition-delay:.2s}.reveal.d3{transition-delay:.3s}
+
+/* ---------- Mobile nav ---------- */
+.mnav{position:fixed;inset:0;background:var(--ivory);z-index:200;transform:translateX(100%);transition:transform .5s var(--ease);display:flex;flex-direction:column;padding:26px;overflow-y:auto}
+.mnav.open{transform:none}
+.mnav-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:34px}
+.mnav-top .logo{height:34px}
+.mnav-top .logo img{height:100%;width:auto;object-fit:contain}
+.mnav-close{background:none;border:none;font-size:30px;cursor:pointer;color:var(--ink);line-height:1}
+.mnav a.ml{font-family:var(--serif);font-size:28px;color:var(--ink);padding:13px 0;border-bottom:1px solid var(--line)}
+.mnav .mn-util{margin-top:28px;display:flex;flex-direction:column;gap:12px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mist)}
+
+/* ---------- Responsive ---------- */
+@media(max-width:1080px){
+  .usp-grid{grid-template-columns:repeat(3,1fr)}
+  .usp-item:nth-child(4){border-left:none}
+  .cat-scroll{grid-template-columns:repeat(7,minmax(130px,1fr));overflow-x:auto;scrollbar-width:none}
+  .cat-scroll::-webkit-scrollbar{display:none}
+}
+@media(max-width:860px){
+  .nav-row,.side.left{display:none}
+  .side.right .txt-hide{display:none}
+  .burger{display:flex}
+  .brand-row{justify-content:center}
+  #topbar .burger{color:var(--paper)}
+  #topbar.solid .burger,#topbar.menu-open .burger{color:var(--ink)}
+  .coll,.bespoke-grid,.boutique-grid{grid-template-columns:1fr;gap:34px}
+  .coll:nth-child(even) .coll-media{order:0}
+  .occ-grid{grid-template-columns:1fr 1fr}
+  .prod-grid{grid-template-columns:1fr 1fr}
+  .film-copy{max-width:none;right:0}
+  .boutique-media{min-height:320px}
+  .foot-top{grid-template-columns:1fr 1fr}
+  .foot-bottom{grid-template-columns:1fr;justify-items:center;text-align:center;gap:16px;padding:24px 0 28px}
+  .foot-bottom .cr{justify-self:center}
+  .foot-social{justify-self:center}
+}
+@media(max-width:480px){
+  .usp-grid{grid-template-columns:1fr 1fr}
+  .usp-item:nth-child(3){border-left:none}
+  .hero-content h1{font-size:46px}
+  .foot-top{grid-template-columns:1fr 1fr;gap:26px 24px}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+  .reveal{opacity:1;transform:none}
+  .hero video,.film video{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- Top bar -->
+<div id="topbar">
+  <div class="announce">Now Shipping Worldwide &nbsp;·&nbsp; Enjoy <b>10% off</b> online with code <b>LM10</b></div>
+  <header class="site">
+    <div class="wrap">
+      <div class="brand-row">
+        <div class="side left">
+          <a href="#"><svg class="ic" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg> Search</a>
+          <a href="#boutique"><svg class="ic" viewBox="0 0 24 24"><path d="M12 21s7-5.6 7-11a7 7 0 10-14 0c0 5.4 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg> Boutiques</a>
+        </div>
+        <a class="logo" href="#top" aria-label="La Marquise"><img src="assets/logo.svg" alt="La Marquise"></a>
+        <div class="side right">
+          <a href="#" class="txt-hide">AED · EN</a>
+          <a href="#" aria-label="Account"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M5 21c0-4 3.5-6 7-6s7 2 7 6"/></svg></a>
+          <a href="#" aria-label="Wishlist"><svg class="ic" viewBox="0 0 24 24"><path d="M12 21C5 15.5 3 11.5 3 8.5A4.5 4.5 0 0112 6a4.5 4.5 0 019 2.5c0 3-2 7-9 12.5z"/></svg></a>
+          <a href="#" aria-label="Bag"><svg class="ic" viewBox="0 0 24 24"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 016 0v2"/></svg></a>
+          <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+        </div>
+      </div>
+      <nav class="nav-row">
+        <div class="nav-item has-mega"><a href="#categories">Jewellery</a>
+          <div class="mega"><div class="mega-inner"><div class="mega-std">
+            <div class="mcol"><h5>Shop by Category</h5><ul>
+              <li><a href="#categories">Rings</a></li><li><a href="#categories">Earrings</a></li><li><a href="#categories">Necklaces</a></li><li><a href="#categories">Pendants</a></li>
+              <li><a href="#categories">Bracelets</a></li><li><a href="#categories">Bangles</a></li><li><a href="#categories">Anklets</a></li><li><a href="#categories">Explore All Fine Jewellery</a></li>
+            </ul></div>
+            <div class="mcol"><h5>Collections</h5><ul>
+              <li><a href="#collections">Luna Ravenna©</a></li><li><a href="#collections">Imperia©</a></li><li><a href="#collections">Espira©</a></li><li><a href="#collections">Pearl Promise©</a></li>
+              <li><a href="#collections">Aura©</a></li><li><a href="#collections">Stella©</a></li><li><a href="#collections">Lumière II</a></li><li><a href="#collections">Explore All Collections</a></li>
+            </ul></div>
+            <div class="mcol"><h5>By Gemstone</h5><ul>
+              <li><a href="#curated">Diamond</a></li><li><a href="#curated">Emerald</a></li><li><a href="#curated">Ruby</a></li><li><a href="#curated">Sapphire</a></li>
+              <li><a href="#curated">Topaz</a></li><li><a href="#curated">Pearl</a></li>
+            </ul></div>
+            <div class="mfeat">
+              <a class="mfig" href="#collections"><div class="im"><img src="assets/diamond-edit.jpg" alt=""></div><div class="cap">Solitaire Jewellery</div></a>
+              <a class="mfig" href="#occasion"><div class="im"><img src="assets/summer.png" alt=""></div><div class="cap">Summer Edit</div></a>
+            </div>
+          </div></div></div>
+        </div>
+
+        <div class="nav-item has-mega"><a href="#collections">High Jewellery</a>
+          <div class="mega"><div class="mega-inner"><div class="mega-std">
+            <div class="mcol"><h5>Signature Lines</h5><ul>
+              <li><a href="#collections">Luna Ravenna©</a></li><li><a href="#collections">Imperia©</a></li><li><a href="#collections">Espira©</a></li><li><a href="#collections">Lumière II</a></li>
+              <li><a href="#collections">MRM©</a></li><li><a href="#collections">Gemstone Jewellery</a></li><li><a href="#collections">Explore High Jewellery</a></li>
+            </ul></div>
+            <div class="mcol"><h5>The Diamond Edit</h5><ul>
+              <li><a href="#curated">Tennis Jewellery</a></li><li><a href="#curated">Illusion Settings</a></li><li><a href="#curated">Solitaires</a></li><li><a href="#curated">Statement Pieces</a></li>
+              <li><a href="#curated">Layering Edit</a></li>
+            </ul></div>
+            <div class="mcol"><h5>Exceptional</h5><ul>
+              <li><a href="#bridal">Bridal Exclusives</a></li><li><a href="#bespoke">Bespoke Creations</a></li><li><a href="#bespoke">Private Viewings</a></li><li><a href="#film">The Maison Film</a></li>
+            </ul></div>
+            <div class="mfeat single">
+              <a class="mfig wide" href="#collections"><div class="im"><img src="assets/prod-necklace.jpg" alt=""></div><div class="cap">Luna Ravenna© — The Mosaic High Jewellery</div></a>
+            </div>
+          </div></div></div>
+        </div>
+
+        <div class="nav-item has-mega"><a href="#collections">Collections</a>
+          <div class="mega"><div class="mega-inner"><div class="mega-std">
+            <div class="mcol"><h5>The Collections</h5><ul>
+              <li><a href="#collections">Luna Ravenna©</a></li><li><a href="#collections">Imperia©</a></li><li><a href="#collections">Espira©</a></li><li><a href="#collections">Pearl Promise©</a></li>
+              <li><a href="#collections">Aura©</a></li><li><a href="#collections">Stella©</a></li><li><a href="#collections">Gingko©</a></li><li><a href="#collections">Explore All Collections</a></li>
+            </ul></div>
+            <div class="mcol"><h5>Trending</h5><ul>
+              <li><a href="#collections">Imperia©</a></li><li><a href="#curated">Best Sellers</a></li><li><a href="#occasion">Jewellery Gifts</a></li><li><a href="#bespoke">Customised Jewellery</a></li>
+              <li><a href="#curated">New Arrivals</a></li>
+            </ul></div>
+            <div class="mcol"><h5>By Material</h5><ul>
+              <li><a href="#curated">Diamond</a></li><li><a href="#curated">Emerald</a></li><li><a href="#curated">Ruby</a></li><li><a href="#curated">Sapphire</a></li>
+              <li><a href="#curated">Topaz</a></li><li><a href="#curated">Pearl</a></li>
+            </ul></div>
+            <div class="mfeat">
+              <a class="mfig" href="#collections"><div class="im"><img src="assets/occ-anniversary.png" alt=""></div><div class="cap">Espira© — Fluid Gold</div></a>
+              <a class="mfig" href="#collections"><div class="im"><img src="assets/diamond-edit.jpg" alt=""></div><div class="cap">The Diamond Edit</div></a>
+            </div>
+          </div></div></div>
+        </div>
+
+        <div class="nav-item has-mega"><a href="#bridal">Bridal</a>
+          <div class="mega"><div class="mega-inner mega-cel">
+            <div class="mtabs">
+              <button class="mtab active" data-tab="b1">Engagement Rings</button>
+              <button class="mtab" data-tab="b2">Wedding Bands</button>
+              <button class="mtab" data-tab="b3">Bridal Sets</button>
+              <button class="mtab" data-tab="b4">Solitaires</button>
+              <button class="mtab diff" data-tab="b5">The La Marquise Difference</button>
+            </div>
+            <div class="mpanel active" id="b1">
+              <a class="mtile" href="#curated"><div class="im"><img src="assets/cat-Rings.png" alt=""></div><div class="cap">Solitaire Settings</div></a>
+              <a class="mtile" href="#curated"><div class="im"><img src="assets/prod-ring.jpg" alt=""></div><div class="cap">Halo Settings</div></a>
+              <a class="mtile" href="#curated"><div class="im"><img src="assets/prod-pendant.jpg" alt=""></div><div class="cap">Three-Stone</div></a>
+              <a class="mtile" href="#curated"><div class="im"><img src="assets/diamond-edit.jpg" alt=""></div><div class="cap">Pavé Bands</div></a>
+              <a class="mtile" href="#curated"><div class="im"><img src="assets/prod-earrings.jpg" alt=""></div><div class="cap">Trilogy</div></a>
+              <a class="mtile" href="#boutique"><div class="im"><img src="assets/occ-surprise.png" alt=""></div><div class="cap">How to Choose a Ring</div></a>
+            </div>
+            <div class="mpanel" id="b2">
+              <a class="mtile" href="#curated"><div class="im"><img src="assets/prod-tennis.jpg" alt=""></div><div class="cap">Classic Bands</div></a>
+              <a class="mtile" href="#curated"><div class="im"><img src="assets/cat-Bracelet.png" alt=""></div><div class="cap">Eternity Bands</div></a>
+              <a class="mtile" href="#curated"><div class="im"><img src="assets/prod-ring.jpg" alt=""></div><div class="cap">Pavé Bands</div></a>
+              <a class="mtile" href="#curated"><div class="im"><img src="assets/cat-Bangles.png" alt=""></div><div class="cap">Diamond Bands</div></a>
+              <a class="mtile" href="#curated"><div class="im"><img src="assets/cat-Rings.png" alt=""></div><div class="cap">Stackable</div></a>
+              <a class="mtile" href="#curated"><div class="im"><img src="assets/diamond-edit.jpg" alt=""></div><div class="cap">His &amp; Hers</div></a>
+            </div>
+            <div class="mpanel" id="b3">
+              <a class="mtile" href="#curated"><div class="im"><img src="assets/prod-necklace.jpg" alt=""></div><div class="cap">Necklace Sets</div></a>
+              <a class="mtile" href="#curated"><div class="im"><img src="assets/prod-earrings.jpg" alt=""></div><div class="cap">Earring Sets</div></a>
+              <a class="mtile" href="#curated"><div class="im"><img src="assets/prod-pendant.jpg" alt=""></div><div class="cap">Pendant Sets</div></a>
+              <a class="mtile" href="#curated"><div class="im"><img src="assets/cat-Bangles.png" alt=""></div><div class="cap">Bangle Sets</div></a>
+              <a class="mtile" href="#collections"><div class="im"><img src="assets/occ-anniversary.png" alt=""></div><div class="cap">Bridal Edit</div></a>
+              <a class="mtile" href="#bespoke"><div class="im"><img src="assets/occ-surprise.png" alt=""></div><div class="cap">Bespoke Sets</div></a>
+            </div>
+            <div class="mpanel" id="b4">
+              <a class="mtile" href="#curated"><div class="im"><img src="assets/prod-ring.jpg" alt=""></div><div class="cap">Round</div></a>
+              <a class="mtile" href="#curated"><div class="im"><img src="assets/cat-Rings.png" alt=""></div><div class="cap">Cushion</div></a>
+              <a class="mtile" href="#curated"><div class="im"><img src="assets/prod-pendant.jpg" alt=""></div><div class="cap">Emerald Cut</div></a>
+              <a class="mtile" href="#curated"><div class="im"><img src="assets/diamond-edit.jpg" alt=""></div><div class="cap">Oval</div></a>
+              <a class="mtile" href="#curated"><div class="im"><img src="assets/prod-earrings.jpg" alt=""></div><div class="cap">Pear</div></a>
+              <a class="mtile" href="#curated"><div class="im"><img src="assets/cat-Pendants.png" alt=""></div><div class="cap">Princess</div></a>
+            </div>
+            <div class="mpanel" id="b5">
+              <a class="mtile" href="#craft"><div class="im"><img src="assets/media/film.jpg" alt=""></div><div class="cap">Natural Diamonds</div></a>
+              <a class="mtile" href="#craft"><div class="im"><img src="assets/prod-necklace.jpg" alt=""></div><div class="cap">Certification</div></a>
+              <a class="mtile" href="#bespoke"><div class="im"><img src="assets/occ-surprise.png" alt=""></div><div class="cap">Bespoke Service</div></a>
+              <a class="mtile" href="#craft"><div class="im"><img src="assets/prod-ring.jpg" alt=""></div><div class="cap">Lifetime Care</div></a>
+            </div>
+            <div class="mcta"><a href="#boutique">Book an Appointment</a> with a La Marquise diamond expert, or explore our <a href="#curated">Guide to Diamonds</a>.</div>
+          </div></div>
+        </div>
+
+        <div class="nav-item has-mega"><a href="#occasion">Gifts</a>
+          <div class="mega"><div class="mega-inner"><div class="mega-std">
+            <div class="mcol"><h5>Shop by Occasion</h5><ul>
+              <li><a href="#occasion">Daily Wear</a></li><li><a href="#occasion">Office Wear</a></li><li><a href="#occasion">For Her Birthday</a></li><li><a href="#occasion">Anniversary</a></li>
+              <li><a href="#occasion">Surprise Gifts</a></li>
+            </ul></div>
+            <div class="mcol"><h5>Gifts</h5><ul>
+              <li><a href="#curated">Most Gifted</a></li><li><a href="#curated">Gifts Under AED 2,000</a></li><li><a href="#bespoke">Customised Jewellery</a></li><li><a href="#occasion">Gift Guide</a></li>
+              <li><a href="#occasion">E-Gift Card</a></li>
+            </ul></div>
+            <div class="mcol"><h5>Recipient</h5><ul>
+              <li><a href="#occasion">Gifts for Her</a></li><li><a href="#occasion">Gifts for Him</a></li><li><a href="#occasion">Gifts for Couples</a></li><li><a href="#bridal">Bridal Gifts</a></li>
+            </ul></div>
+            <div class="mfeat">
+              <a class="mfig" href="#occasion"><div class="im"><img src="assets/occ-daily.jpg" alt=""></div><div class="cap">Daily Wear</div></a>
+              <a class="mfig" href="#occasion"><div class="im"><img src="assets/occ-office.png" alt=""></div><div class="cap">Office Wear</div></a>
+              <a class="mfig" href="#occasion"><div class="im"><img src="assets/occ-birthday.png" alt=""></div><div class="cap">For Her Birthday</div></a>
+              <a class="mfig" href="#occasion"><div class="im"><img src="assets/occ-anniversary.png" alt=""></div><div class="cap">Anniversary</div></a>
+            </div>
+          </div></div></div>
+        </div>
+
+        <div class="nav-item"><a href="#social">As Seen On</a></div>
+        <div class="nav-item"><a href="#film">The Maison</a></div>
+      </nav>
+    </div>
+  </header>
+</div>
+
+<!-- Mobile nav -->
+<div class="mnav" id="mnav">
+  <div class="mnav-top">
+    <span class="logo"><img src="assets/logo.svg" alt="La Marquise"></span>
+    <button class="mnav-close" id="mclose" aria-label="Close">&times;</button>
+  </div>
+  <a class="ml" href="#categories">Jewellery</a>
+  <a class="ml" href="#collections">High Jewellery</a>
+  <a class="ml" href="#collections">Collections</a>
+  <a class="ml" href="#bridal">Bridal</a>
+  <a class="ml" href="#film">The Maison</a>
+  <a class="ml" href="#bespoke">Bespoke</a>
+  <a class="ml" href="#boutique">Boutiques</a>
+  <div class="mn-util"><a href="#">Search</a><a href="#">Account · Wishlist · Bag</a><a href="#">AED · English</a></div>
+</div>
+
+<!-- Hero -->
+<section class="hero" id="top">
+  <img class="poster" src="assets/media/hero.jpg" alt="">
+  <video autoplay muted loop playsinline poster="assets/media/hero.jpg">
+    <source src="assets/media/hero.mp4" type="video/mp4">
+  </video>
+  <div class="hero-content">
+    <span class="eyebrow">The Diamond Edit</span>
+    <h1>Timeless Diamonds.<br><em>Endless Radiance.</em></h1>
+    <p>Natural-diamond fine jewellery, crafted in Dubai since 1986.</p>
+    <div class="hero-cta">
+      <a href="#collections" class="btn light"><span>Discover the Collections</span></a>
+      <a href="#boutique" class="btn light"><span>Book an Appointment</span></a>
+    </div>
+  </div>
+  <div class="hero-scroll">Scroll<i></i></div>
+</section>
+
+<!-- USP -->
+<section class="usp">
+  <div class="usp-grid">
+    <div class="usp-item"><img src="assets/usp-Natural-di.png" alt=""><div class="t">Natural Diamonds</div></div>
+    <div class="usp-item"><img src="assets/usp-internatio.png" alt=""><div class="t">Internationally Certified</div></div>
+    <div class="usp-item"><img src="assets/usp-bespoke-je.png" alt=""><div class="t">Bespoke Concierge</div></div>
+    <div class="usp-item"><img src="assets/usp-compliment.png" alt=""><div class="t">Complimentary Lifetime Care</div></div>
+    <div class="usp-item"><img src="assets/usp-world.png" alt=""><div class="t">Worldwide Shipping</div></div>
+    <div class="usp-item"><img src="assets/usp-award-winn.png" alt=""><div class="t">Award-Winning Maison</div></div>
+  </div>
+</section>
+
+<!-- Shop by Category -->
+<section class="cats sec" id="categories">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Discover Fine Jewellery</span>
+      <h2>Shop by category</h2>
+    </div>
+    <div class="cat-scroll reveal">
+      <a class="cat" href="#curated"><div class="im"><img src="assets/cat-Rings.png" alt="Rings"></div><div class="lab">Rings</div></a>
+      <a class="cat" href="#curated"><div class="im"><img src="assets/cat-Earrings.png" alt="Earrings"></div><div class="lab">Earrings</div></a>
+      <a class="cat" href="#curated"><div class="im"><img src="assets/cat-Necklace.png" alt="Necklaces"></div><div class="lab">Necklaces</div></a>
+      <a class="cat" href="#curated"><div class="im"><img src="assets/cat-Pendants.png" alt="Pendants"></div><div class="lab">Pendants</div></a>
+      <a class="cat" href="#curated"><div class="im"><img src="assets/cat-Bracelet.png" alt="Bracelets"></div><div class="lab">Bracelets</div></a>
+      <a class="cat" href="#curated"><div class="im"><img src="assets/cat-Bangles.png" alt="Bangles"></div><div class="lab">Bangles</div></a>
+      <a class="cat" href="#curated"><div class="im"><img src="assets/cat-Anklet.png" alt="Anklets"></div><div class="lab">Anklets</div></a>
+    </div>
+  </div>
+</section>
+
+<!-- Signature Collections -->
+<section class="coll-wrap sec" id="collections">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Signature Collections</span>
+      <h2>Worlds within the Maison</h2>
+      <p>Each collection is a distinct language of light — conceived in-house, realised by hand.</p>
+    </div>
+
+    <div class="coll reveal">
+      <div class="coll-media"><span class="idx">01 — Luna Ravenna©</span><img src="assets/prod-necklace.jpg" alt="Luna Ravenna Mosaic"></div>
+      <div class="coll-copy">
+        <span class="eyebrow">The Mosaic Artistry</span>
+        <h3>Luna Ravenna©</h3>
+        <div class="tag">Mother-of-pearl meets the diamond.</div>
+        <p>An iridescent mosaic of mother-of-pearl inlaid and framed in natural diamonds — the Maison's most distinctive high-jewellery signature, from petite rings to the ceremonial necklace.</p>
+        <a href="#curated" class="ul-link">Explore Luna Ravenna <span class="ar">→</span></a>
+      </div>
+    </div>
+
+    <div class="coll reveal">
+      <div class="coll-media"><span class="idx">02 — Espira©</span><img src="assets/occ-anniversary.png" alt="Espira fluid gold"></div>
+      <div class="coll-copy">
+        <span class="eyebrow">Fluid Gold</span>
+        <h3>Espira©</h3>
+        <div class="tag">Wrap yourself in fluid gold.</div>
+        <p>Sculptural, sinuous forms that move with you — Espira reinterprets gold as something liquid and alive, a modern staple worn against the skin, every day.</p>
+        <a href="#curated" class="ul-link">Explore Espira <span class="ar">→</span></a>
+      </div>
+    </div>
+
+    <div class="coll reveal">
+      <div class="coll-media"><span class="idx">03 — The Diamond Edit</span><img src="assets/diamond-edit.jpg" alt="The Diamond Edit"></div>
+      <div class="coll-copy">
+        <span class="eyebrow">Everyday Brilliance</span>
+        <h3>The Diamond Edit</h3>
+        <div class="tag">Stack the hours. Stack the shine.</div>
+        <p>Tennis bracelets, illusion settings and layering pieces designed to be worn together — the natural-diamond essentials that carry you from desk to dinner.</p>
+        <a href="#curated" class="ul-link">Shop the edit <span class="ar">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Brand film -->
+<section class="film" id="film">
+  <img class="poster" src="assets/media/film.jpg" alt="">
+  <video autoplay muted loop playsinline poster="assets/media/film.jpg">
+    <source src="assets/media/film.mp4" type="video/mp4">
+  </video>
+  <div class="film-copy">
+    <span class="eyebrow">The World of La Marquise</span>
+    <h2>A Maison born of<br>desert light.</h2>
+    <p>Four decades ago, in the heart of Dubai, La Marquise began with a single conviction — that a diamond should hold not only brilliance, but belonging.</p>
+    <a href="#bespoke" class="btn light"><span>Discover the Maison</span></a>
+  </div>
+</section>
+
+<!-- As Seen On Social -->
+<section class="social sec" id="social">
+  <div class="wrap">
+    <div class="social-head reveal">
+      <div>
+        <span class="eyebrow">#LaMarquise</span>
+        <h2>As Seen On Social</h2>
+      </div>
+      <div class="social-nav">
+        <button id="sPrev" aria-label="Previous">‹</button>
+        <button id="sNext" aria-label="Next">›</button>
+      </div>
+    </div>
+    <div class="social-track" id="sTrack">
+      <div class="svid" data-src="assets/media/soc1.mp4"><div class="frame"><img class="pf" src="assets/media/soc1.jpg" alt=""><video muted loop playsinline preload="none"></video><span class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div><div class="lab">Shop Luna Bangle →</div></div>
+      <div class="svid" data-src="assets/media/soc2.mp4"><div class="frame"><img class="pf" src="assets/media/soc2.jpg" alt=""><video muted loop playsinline preload="none"></video><span class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div><div class="lab">Discover Bridal Exclusives →</div></div>
+      <div class="svid" data-src="assets/media/soc3.mp4"><div class="frame"><img class="pf" src="assets/media/soc3.jpg" alt=""><video muted loop playsinline preload="none"></video><span class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div><div class="lab">Shop Lumière II →</div></div>
+      <div class="svid" data-src="assets/media/soc4.mp4"><div class="frame"><img class="pf" src="assets/media/soc4.jpg" alt=""><video muted loop playsinline preload="none"></video><span class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div><div class="lab">Discover Imperia Sets →</div></div>
+      <div class="svid" data-src="assets/media/soc5.mp4"><div class="frame"><img class="pf" src="assets/media/soc5.jpg" alt=""><video muted loop playsinline preload="none"></video><span class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div><div class="lab">Explore MRM Collection →</div></div>
+      <div class="svid" data-src="assets/media/soc6.mp4"><div class="frame"><img class="pf" src="assets/media/soc6.jpg" alt=""><video muted loop playsinline preload="none"></video><span class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div><div class="lab">Shop Gemstone Jewellery →</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Occasion -->
+<section class="occ sec" id="occasion">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">A Gift for Every Moment</span>
+      <h2>Shop by occasion</h2>
+    </div>
+    <div class="occ-grid">
+      <a class="occ-card reveal" href="#curated"><img src="assets/occ-office.png" alt="Office Wear"><div class="t"><div class="n">Office Wear</div><div class="c">Shop now</div></div></a>
+      <a class="occ-card reveal d1" href="#curated"><img src="assets/occ-anniversary.png" alt="Anniversary"><div class="t"><div class="n">Anniversary</div><div class="c">Shop now</div></div></a>
+      <a class="occ-card reveal d2" href="#curated"><img src="assets/occ-birthday.png" alt="Birthday"><div class="t"><div class="n">Birthday</div><div class="c">Shop now</div></div></a>
+      <a class="occ-card reveal d3" href="#curated"><img src="assets/occ-surprise.png" alt="Surprise Gifts"><div class="t"><div class="n">Surprise Gifts</div><div class="c">Shop now</div></div></a>
+    </div>
+  </div>
+</section>
+
+<!-- Curated -->
+<section class="curated sec" id="curated">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Curated Selection</span>
+      <h2>A few of our rarest</h2>
+    </div>
+    <div class="prod-grid">
+      <div class="card reveal"><div class="card-media"><img src="assets/prod-necklace.jpg" alt="Luna Ravenna Mosaic Necklace"><button class="wish" aria-label="Wishlist"><svg viewBox="0 0 24 24"><path d="M12 21C5 15.5 3 11.5 3 8.5A4.5 4.5 0 0112 6a4.5 4.5 0 019 2.5c0 3-2 7-9 12.5z"/></svg></button><div class="swatches"><span class="sw y"></span><span class="sw w"></span><span class="sw r"></span></div><button class="bag" aria-label="Add to bag"><svg viewBox="0 0 24 24"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 016 0v2"/></svg></button></div><div class="cn">Luna Ravenna© Mosaic Necklace</div><div class="cp">AED 66,950</div></div>
+      <div class="card reveal d1"><div class="card-media"><img src="assets/prod-earrings.jpg" alt="Luna Ravenna Mosaic Drop Earrings"><button class="wish" aria-label="Wishlist"><svg viewBox="0 0 24 24"><path d="M12 21C5 15.5 3 11.5 3 8.5A4.5 4.5 0 0112 6a4.5 4.5 0 019 2.5c0 3-2 7-9 12.5z"/></svg></button><div class="swatches"><span class="sw y"></span><span class="sw w"></span><span class="sw r"></span></div><button class="bag" aria-label="Add to bag"><svg viewBox="0 0 24 24"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 016 0v2"/></svg></button></div><div class="cn">Luna Ravenna© Drop Earrings</div><div class="cp">AED 9,250</div></div>
+      <div class="card reveal d2"><div class="card-media"><img src="assets/prod-ring.jpg" alt="Luna Ravenna Mosaic Ring"><button class="wish" aria-label="Wishlist"><svg viewBox="0 0 24 24"><path d="M12 21C5 15.5 3 11.5 3 8.5A4.5 4.5 0 0112 6a4.5 4.5 0 019 2.5c0 3-2 7-9 12.5z"/></svg></button><div class="swatches"><span class="sw y"></span><span class="sw w"></span><span class="sw r"></span></div><button class="bag" aria-label="Add to bag"><svg viewBox="0 0 24 24"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 016 0v2"/></svg></button></div><div class="cn">Luna Ravenna© Mosaic Ring</div><div class="cp">AED 5,500</div></div>
+      <div class="card reveal d3"><div class="card-media"><img src="assets/prod-tennis.jpg" alt="Tiger Prong Tennis Bracelet"><button class="wish" aria-label="Wishlist"><svg viewBox="0 0 24 24"><path d="M12 21C5 15.5 3 11.5 3 8.5A4.5 4.5 0 0112 6a4.5 4.5 0 019 2.5c0 3-2 7-9 12.5z"/></svg></button><div class="swatches"><span class="sw y"></span><span class="sw w"></span><span class="sw r"></span></div><button class="bag" aria-label="Add to bag"><svg viewBox="0 0 24 24"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 016 0v2"/></svg></button></div><div class="cn">Tiger Prong Tennis Bracelet</div><div class="cp">AED 15,950</div></div>
+    </div>
+    <div class="more reveal"><a href="#" class="btn"><span>Discover the full collection</span></a></div>
+  </div>
+</section>
+
+<!-- Bespoke -->
+<section class="bespoke sec" id="bespoke">
+  <div class="wrap bespoke-grid">
+    <div class="bespoke-media reveal"><img src="assets/occ-surprise.png" alt="Bespoke jewellery"></div>
+    <div class="bespoke-copy reveal d1">
+      <span class="eyebrow">Bespoke &amp; Private Consultation</span>
+      <h2>A creation that is<br><em>yours alone</em>.</h2>
+      <p>Some pieces cannot be found — only imagined. Our bespoke concierge accompanies you from first sketch to final setting, in-boutique or virtually, wherever you are in the world.</p>
+      <ul class="bespoke-list">
+        <li>One-to-one with a Maison design expert</li>
+        <li>Natural-diamond selection, guided by hand</li>
+        <li>Sketches, approvals and private previews</li>
+        <li>Complimentary worldwide delivery &amp; lifetime care</li>
+      </ul>
+      <a href="#" class="btn light"><span>Begin Your Commission</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- Boutique -->
+<section class="boutique sec" id="boutique">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">The Boutique Experience</span>
+      <h2>Visit the Maison</h2>
+    </div>
+    <div class="boutique-grid reveal">
+      <div class="boutique-media"><img src="assets/visit-us.jpg" alt="La Marquise boutique"></div>
+      <div class="boutique-copy">
+        <span class="eyebrow">By appointment or walk-in</span>
+        <h2>Dubai, United Arab Emirates</h2>
+        <p>Step into our boutique for a personal, unhurried encounter with the collections — a velvet tray, a glass of something cool, and a personal shopping team devoted to you.</p>
+        <div class="boutique-detail">
+          <div><div class="k">Personal Shopping</div><div class="v">By appointment</div></div>
+          <div><div class="k">Virtual Consultation</div><div class="v">Worldwide</div></div>
+        </div>
+        <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:center">
+          <a href="#" class="btn"><span>Book an Appointment</span></a>
+          <a href="#" class="ul-link" style="padding-top:12px">Find our boutiques <span class="ar">→</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Footer -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-col"><h5>Shop by Category</h5><ul>
+        <li><a href="#categories">Rings</a></li><li><a href="#categories">Earrings</a></li><li><a href="#categories">Necklaces</a></li><li><a href="#categories">Pendants</a></li>
+        <li><a href="#categories">Bracelets</a></li><li><a href="#categories">Bangles</a></li><li><a href="#categories">Anklets</a></li><li><a href="#categories">Explore All Fine Jewellery</a></li>
+      </ul></div>
+      <div class="foot-col"><h5>Company</h5><ul>
+        <li><a href="#">Our Story</a></li><li><a href="#">We Give Back</a></li><li><a href="#boutique">Visit Us</a></li><li><a href="#">Factory</a></li><li><a href="#">Wholesale</a></li>
+        <li><a href="#">Careers</a></li><li><a href="#">Privacy Policy</a></li><li><a href="#">ISO Certificates</a></li><li><a href="#">Sustainability Report</a></li><li><a href="#">Business Policies</a></li>
+      </ul></div>
+      <div class="foot-col"><h5>Customer Service</h5><ul>
+        <li><a href="#">Shipping &amp; Returns</a></li><li><a href="#">Gift Guide</a></li><li><a href="#">Care Guide</a></li><li><a href="#">Size Guide</a></li>
+        <li><a href="#">Contact Us</a></li><li><a href="#">FAQ</a></li><li><a href="#">Blogs</a></li>
+      </ul></div>
+      <div class="foot-col"><h5>Visit Us</h5><ul>
+        <li><a href="#boutique">Our Boutiques</a></li><li><a href="#boutique">Book an Appointment</a></li><li><a href="#boutique">Personal Shopping</a></li>
+        <li><a href="#bespoke">Bespoke Concierge</a></li><li><a href="#boutique">Virtual Consultation</a></li><li><a href="#">Dubai, U.A.E.</a></li>
+      </ul>
+        <div class="foot-news">
+          <h5>The La Marquise Letter</h5>
+          <p>Private previews &amp; invitations, shared first.</p>
+          <form class="foot-news-form" onsubmit="return false">
+            <input type="email" placeholder="Your email address" aria-label="Email">
+            <button type="submit" aria-label="Subscribe">→</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <div class="cr">© La Marquise Diamonds &amp; Watches DMCC 2026. All Rights Reserved.</div>
+      <a class="foot-logo" href="#top" aria-label="La Marquise"><img src="assets/logo.svg" alt="La Marquise"></a>
+      <div class="foot-social"><a href="#">Instagram</a><a href="#">Facebook</a><a href="#">YouTube</a><a href="#">Pinterest</a></div>
+    </div>
+  </div>
+</footer>
+
+<!-- Concierge -->
+<div class="concierge"><span class="dot"></span> Chat with AI Concierge</div>
+
+<script>
+// Header transparent over hero → solid white on scroll
+const topbar=document.getElementById('topbar');
+const setBar=()=>{ topbar.classList.toggle('solid', scrollY>60) };
+addEventListener('scroll',setBar,{passive:true}); setBar();
+
+// Tiffany-style: header goes white while a mega menu is open
+document.querySelectorAll('.nav-item.has-mega').forEach(it=>{
+  it.addEventListener('mouseenter',()=>topbar.classList.add('menu-open'));
+});
+const navRow=document.querySelector('.nav-row');
+navRow.addEventListener('mouseleave',()=>topbar.classList.remove('menu-open'));
+
+// Bridal mega — sub-tab switching (hover or click)
+document.querySelectorAll('.mega-cel').forEach(cel=>{
+  const tabs=cel.querySelectorAll('.mtab'), panels=cel.querySelectorAll('.mpanel');
+  const activate=(tab)=>{
+    tabs.forEach(t=>t.classList.remove('active'));
+    panels.forEach(p=>p.classList.remove('active'));
+    tab.classList.add('active');
+    const panel=cel.querySelector('#'+tab.dataset.tab);
+    if(panel) panel.classList.add('active');
+  };
+  tabs.forEach(tab=>{
+    tab.addEventListener('mouseenter',()=>activate(tab));
+    tab.addEventListener('click',(e)=>{e.preventDefault();activate(tab);});
+  });
+});
+
+// Mobile nav
+const burger=document.getElementById('burger'),mnav=document.getElementById('mnav'),mclose=document.getElementById('mclose');
+burger.addEventListener('click',()=>mnav.classList.add('open'));
+mclose.addEventListener('click',()=>mnav.classList.remove('open'));
+mnav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mnav.classList.remove('open')));
+
+// Reveal
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:0.12,rootMargin:'0px 0px -6% 0px'});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+// Social videos — load + play on hover (desktop), tap toggles (touch)
+document.querySelectorAll('.svid').forEach(card=>{
+  const v=card.querySelector('video'), src=card.dataset.src;
+  let loaded=false;
+  const load=()=>{ if(!loaded){v.src=src;loaded=true;} };
+  const play=()=>{ load(); v.play().then(()=>card.classList.add('playing')).catch(()=>{}); };
+  const stop=()=>{ v.pause(); card.classList.remove('playing'); };
+  card.addEventListener('mouseenter',play);
+  card.addEventListener('mouseleave',stop);
+  card.addEventListener('click',(e)=>{ e.preventDefault(); card.classList.contains('playing')?stop():play(); });
+});
+
+// Social carousel arrows
+const track=document.getElementById('sTrack');
+const step=()=>Math.min(track.clientWidth*0.8, 640);
+document.getElementById('sNext').addEventListener('click',()=>track.scrollBy({left:step(),behavior:'smooth'}));
+document.getElementById('sPrev').addEventListener('click',()=>track.scrollBy({left:-step(),behavior:'smooth'}));
+
+// Pause hero/film videos when off-screen (perf)
+const vio=new IntersectionObserver((es)=>{es.forEach(e=>{const v=e.target;if(e.isIntersecting){v.play&&v.play().catch(()=>{})}else{v.pause&&v.pause()}})},{threshold:0.1});
+document.querySelectorAll('.hero video,.film video').forEach(v=>vio.observe(v));
+</script>
+</body>
+</html>
